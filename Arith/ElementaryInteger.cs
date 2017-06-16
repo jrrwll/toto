@@ -28,7 +28,6 @@ namespace Toto.Arith
             int m;
             while (b != 0)
             {
-                a = a > b ? a : b;
                 m = a % b;
                 a = b;
                 b = m;
@@ -43,7 +42,6 @@ namespace Toto.Arith
             long m;
             while (b != 0)
             {
-                a = a > b ? a : b;
                 m = a % b;
                 a = b;
                 b = m;

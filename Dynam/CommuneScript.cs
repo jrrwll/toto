@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace Toto.Dynam
 {
-    public class CommuneScript
+    public static partial class CommuneScript
     {
 
         // Python

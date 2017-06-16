@@ -24,7 +24,7 @@ namespace Toto.Arith
                 c = c * c * c;
                 if ((a + b + c) == i) list.Add(i);
             }
-            return list.Count == 0 ? null : list;
+            return list;
         }
 
         public static List<int> GetDaffodil2()
@@ -39,7 +39,7 @@ namespace Toto.Arith
                 b = b * b;
                 if ((a + b) == i) list.Add(i);
             }
-            return list.Count == 0 ? null : list;
+            return list;
         }
 
         public static List<int> GetDaffodil4()
@@ -68,40 +68,19 @@ namespace Toto.Arith
                         list.Add(i);
                 }
             });
-            return list.Count == 0 ? null : list;
+            return list;
         }
 
-        public static List<int> GetDaffodil5()
+        /*
+        public static List<int> GetDaffodil(int n)
         {
-            var list = new List<int>();
-            int a, b, c, d, e;
-
-            Parallel.ForEach(Partitioner.Create(10000, 99999), (rang) =>
-            {
-                for (int i = rang.Item1; i < rang.Item2; i++)
-                {
-                    a = i / 10000;
-                    Math.DivRem(i, 10000, out b);
-                    b /= 1000;
-                    Math.DivRem(i, 1000, out c);
-                    c /= 100;
-                    Math.DivRem(i, 100, out d);
-                    d /= 10;
-                    Math.DivRem(i, 10, out e);
-
-                    a = a * a * a * a * a;
-                    b = b * b * b * b * b;
-                    c = c * c * c * c * c;
-                    d = d * d * d * d * d;
-                    e = e * e * e * e * e;
-
-                    if ((a + b + c + d + e) == i)
-                        list.Add(i);
-                }
-            });
-            return list.Count == 0 ? null : list;
+            if (n >= 5) return _GetDaffodil(n);
+            else if (n == 4) return GetDaffodil4();
+            else if (n == 3) return GetDaffodil3();
+            else if (n == 2) return GetDaffodil2();
+            else throw new IllegalArgumentException("Require: args >= 2");
         }
-
+        */
         public static List<int> GetDaffodil(int n)
         {
             var list = new List<int>();
@@ -115,7 +94,8 @@ namespace Toto.Arith
             {
                 for (int i = rang.Item1; i < rang.Item2; i++)
                 {
-                    for (int j = n - 1; j >= 0; i--)
+                    sum = 0;
+                    for (int j = n - 1; j >= 0; j--)
                     {
                         Math.DivRem(i, (int)Math.Pow(10, j + 1), out p[j]);
                         p[j] /= (int)Math.Pow(10, j);
@@ -125,7 +105,7 @@ namespace Toto.Arith
                         list.Add(i);
                 }
             });
-            return list.Count == 0 ? null : list;
+            return list;
         }
 
 

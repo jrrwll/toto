@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crypto\EasyCrypto.cs" />
     <Compile Include="ElementaryInteger.cs" />
     <Compile Include="PeculiarInteger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

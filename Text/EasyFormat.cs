@@ -2,7 +2,7 @@
 
 namespace Toto.Text
 {
-    public class EasyFormat
+    public static partial class EasyFormat
     {
         // 字节
         public static string BytesConversion(long size)
