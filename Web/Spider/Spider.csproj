@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7EE22CD5-3738-4F67-A45B-4859406ED30F}</ProjectGuid>
+    <ProjectGuid>{F3440886-20B5-4117-A2ED-6DA121C667BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Toto.Arith</RootNamespace>
-    <AssemblyName>Toto.Arith</AssemblyName>
+    <RootNamespace>Toto.Web.Spider</RootNamespace>
+    <AssemblyName>Toto.Web.Spider</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,11 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EasyExample.cs" />
-    <Compile Include="ElementaryArithmetic.cs" />
-    <Compile Include="ElementaryInteger.cs" />
-    <Compile Include="PeculiarInteger.cs" />
+    <Compile Include="SPH\SpiderHelper.cs" />
+    <Compile Include="SPH\SpiderParser.cs" />
+    <Compile Include="SPH\SpiderStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
