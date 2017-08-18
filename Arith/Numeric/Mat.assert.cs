@@ -47,16 +47,6 @@ namespace Toto.Arith.Numeric
             return ! (lhs == rhs);
         }
 
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
         public override string ToString()
         {
             return string.Format( "Toto.Arith.Numeric.Dim({0}, {1})", X, Y );
