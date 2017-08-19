@@ -267,6 +267,7 @@ namespace Toto.Arith.Crypto
             return new MemoryStream(TripleDESDecrypt(source, key, iv));
         }
 
+       
         //--------------------------------  --------------------------------
         //--------------------------------  --------------------------------
 
@@ -301,6 +302,56 @@ namespace Toto.Arith.Crypto
             return target;
         }
 
+        
+        //--------------------------------  --------------------------------
+        //--------------------------------  --------------------------------
+
+        /// <summary>
+        /// RSA算法
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="dwKeySize"></param>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public static byte[] RSAEncrypt( byte[] source, out RSAParameters param, int dwKeySize = 1024 )
+        {
+            RSACryptoServiceProvider m = new RSACryptoServiceProvider(dwKeySize);
+            param = m.ExportParameters(true);
+            return m.Encrypt(source, true);
+        }
+        public static byte[] RSAEncrypt( byte[] source, out byte[] blob, int dwKeySize = 1024 )
+        {
+            RSACryptoServiceProvider m = new RSACryptoServiceProvider(dwKeySize);
+            blob = m.ExportCspBlob(true);
+            return m.Encrypt(source, true);
+        }
+        public static byte[] RSAEncrypt( byte[] source, out string xml, int dwKeySize = 1024 )
+        {
+            RSACryptoServiceProvider m = new RSACryptoServiceProvider(dwKeySize);
+            xml = m.ToXmlString(true);
+            return m.Encrypt(source, true);
+        }
+        
+        public static byte[] RSADecrypt( byte[] source, ref RSAParameters param, int dwKeySize = 1024 )
+        {
+            RSACryptoServiceProvider m = new RSACryptoServiceProvider(dwKeySize);
+            m.ImportParameters( param );
+            return m.Decrypt(source, true);
+        }
+        public static byte[] RSADecrypt( byte[] source, ref byte[] blob, int dwKeySize = 1024 )
+        {
+            RSACryptoServiceProvider m = new RSACryptoServiceProvider(dwKeySize);
+            m.ImportCspBlob(blob);
+            return m.Decrypt(source, true);
+        }
+        public static byte[] RSADecrypt( byte[] source, ref string xml, int dwKeySize = 1024 )
+        {
+            RSACryptoServiceProvider m = new RSACryptoServiceProvider(dwKeySize);
+            m.FromXmlString(xml);
+            return m.Decrypt(source, true);
+        }
+        
+        //--------------------------------  --------------------------------
 
     }
 }

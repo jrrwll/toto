@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 
 namespace Toto.MS
 {
@@ -13,7 +12,7 @@ namespace Toto.MS
         /// <param name="intKey"> 虚拟键键码 </param>
         /// <returns> 非0表示已按下该键 </returns>
         [DllImport("user32.dll", EntryPoint = "GetKeyState")]
-        internal static extern int GetKeyState(int intKey);
+        public static extern int GetKeyState(int intKey);
         
         // ---------------------------------- SendInput ----------------------------------
         /// <summary>
@@ -24,35 +23,12 @@ namespace Toto.MS
         /// <param name="cbSize">  定义Input结构的大小 </param>
         /// <returns></returns>
         [DllImport("user32.dll", EntryPoint = "SendInput", CharSet = CharSet.Auto)]
-        internal static extern uint SendInput( uint nInputs, Input[] pInputs, int cbSize );
-
-        public struct Input
-        {
-            
-        }
-
-
-
-        /// <summary>
-        /// 系统热键注册
-        /// </summary>
-        /// <param name="hWnd"></param>
-        /// <param name="id"></param>
-        /// <param name="modifiers"></param>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        [DllImport("user32.dll", SetLastError = true)]
-        internal static extern bool RegisterHotKey (IntPtr hWnd, int id, KeyModifiers modifiers, Keys key);
-
-        [DllImport("user32.dll", SetLastError = true)]
-        internal static extern bool UnregisterHotKey(IntPtr hWnd, int id);
-
-
+        public static extern uint SendInput( uint nInputs, InputStruct[] pInputs, int cbSize );
 
     }
 
-    public enum KeyModifiers
+    public struct InputStruct
     {
-        None=0, Alt=1, Control=2
+
     }
 }

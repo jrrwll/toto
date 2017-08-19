@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Drawing;
 using System.Runtime.InteropServices;
 
 namespace Toto.MS
 {
     public static partial class WinAPI
     {
-        /// <summary>
-        /// 获取窗口矩阵范围
-        /// </summary>
-        /// <param name="hwnd"></param>
-        /// <param name="lpRect"></param>
-        /// <returns></returns>
-        [DllImport("user32.dll", EntryPoint = "GetWindowRect")]
-        internal static extern int GetWindowRect(int hwnd, ref Rectangle lpRect);
+        
         
         
         /// <summary>
@@ -23,16 +15,6 @@ namespace Toto.MS
         [DllImport("user32.dll", EntryPoint = "GetDesktopWindow")]
         internal static extern int GetDesktopWindow();
 
-
-        /// <summary>
-        /// 屏蔽窗口的某区域
-        /// </summary>
-        /// <param name="hwnd"></param>
-        /// <param name="lpRect"></param>
-        /// <param name="bErase"> 非0导致在重画前先删除 </param>
-        /// <returns></returns>
-        [DllImport("user32.dll", EntryPoint = "InvalidateRect")]
-        internal static extern int InvalidateRect(int hwnd, ref Rectangle lpRect, bool bErase);
         
         /// <summary>
         /// 刷新窗口

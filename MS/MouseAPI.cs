@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Runtime.InteropServices;
 
 namespace Toto.MS
@@ -7,10 +6,10 @@ namespace Toto.MS
     public static class MouseAPI
     {
         [DllImport("user32.dll", CallingConvention = CallingConvention.StdCall)]
-        internal static extern IntPtr GetCursorPos(POINT pnt);
+        public static extern IntPtr GetCursorPos(POINT pnt);
         
         [DllImport("user32.dll", CallingConvention = CallingConvention.StdCall)]
-        internal static extern IntPtr SetCursorPos(POINT pnt);
+        public static extern IntPtr SetCursorPos(POINT pnt);
         
         
         /// <summary>
@@ -23,7 +22,7 @@ namespace Toto.MS
         /// <param name="dwExtraInfo"> GetMessageExtraInfo() 可以获取此值</param>
         /// <returns></returns>
         [DllImport("user32.dll", CallingConvention = CallingConvention.StdCall)]
-        internal static extern IntPtr mouse_event(int dwFlags, 
+        public static extern IntPtr mouse_event(int dwFlags, 
             int dx, int dy, int dwData, int dwExtraInfo);
         
         // mouse_event: dwFlags
@@ -67,7 +66,7 @@ namespace Toto.MS
         /// <param name="bSwap"> 非0，则交换鼠标按键，否则恢复正常</param>
         /// <returns> 非0，则之前已经交换过， 否则返0</returns>
         [DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
-        internal static extern int SwapMouseButton(int bSwap);
+        public static extern int SwapMouseButton(int bSwap);
         
         /// <summary>
         /// 控制鼠标的可视性
@@ -75,12 +74,8 @@ namespace Toto.MS
         /// <param name="bSwap"> true则显示鼠标 </param>
         /// <returns></returns>
         [DllImport("user32.dll", EntryPoint = "ShowCursor")]
-        internal static extern bool ShowCursor(bool bSwap);
+        public static extern bool ShowCursor(bool bSwap);
        
-        [DllImport("user32.dll", EntryPoint = "LoadCursorFromFile")]
-        internal static extern IntPtr LoadCursorFromFile(string filename);
         
-        [DllImport("user32.dll", EntryPoint = "IntLoadCursorFromFile")]
-        internal static extern int IntLoadCursorFromFile(string filename);
     }
 }
